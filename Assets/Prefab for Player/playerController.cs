@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 
@@ -11,9 +13,14 @@ public class playerController : MonoBehaviour {
     public float decreaseRate;
     public int mass;
     public float drag;
+    public GameObject RestartMenu;
     public GameObject player;
     public AudioClip Slipsound;
     public AudioClip BackGroundsound;
+    public bool isGameOver;
+    public Text Score;
+    public Text HighScore;
+    private float StartTime;
 
 
     [SerializeField]
@@ -35,11 +42,16 @@ public class playerController : MonoBehaviour {
 
         audi.clip = BackGroundsound;
         audi.Play();
+        RestartMenu.SetActive(false);
+        isGameOver = false;
+        StartTime = Time.time;
+        HighScore.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore").ToString("f0");
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetHighScore();
         switch (current)
         {
 
@@ -92,6 +104,7 @@ public class playerController : MonoBehaviour {
     {
         if (other.gameObject.tag == "InnerBoundary")
         {
+            isGameOver = true;
             audi.clip = Slipsound;
             audi.Play();
             current = State.FREE;
@@ -104,8 +117,10 @@ public class playerController : MonoBehaviour {
             rb.drag = drag;
             Debug.Log("Inner boundary child");
             current = State.FREE;
+            Invoke("GameOver", 2.0f);
+           
         }
-        
+
     }
 
     void OnTriggerExit(Collider other)
@@ -117,9 +132,45 @@ public class playerController : MonoBehaviour {
                 audi.clip = Slipsound;
                 audi.Play();
             }
+            isGameOver = true;
             current = State.FREE;
             Debug.Log("Outside");
+            Invoke("GameOver", 2.0f);
+            
         }
     }
 
+    void SetHighScore()
+    {
+        float t = Time.time - StartTime;
+        float score = ((t % 60) * 100);
+        string score_string = score.ToString("f0");
+        
+        if (!isGameOver)
+        {
+            Score.text = "Score : " + score_string;
+            if (PlayerPrefs.GetFloat("HighScore") < score)
+            {
+                PlayerPrefs.SetFloat("HighScore", score);
+                HighScore.text = "HighScore : " + score.ToString("f0");
+            }
+
+        }
+        else
+        {
+            HighScore.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore").ToString("f0");
+        }
+    }
+
+    public void GameOver()
+    {
+        print("retarted");
+        RestartMenu.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("LoadScene");
+    }
 }

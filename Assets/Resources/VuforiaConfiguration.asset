@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: AUbv8cv/////AAAAmelLd5ASgk0Nj3tJCX3OKWmGCwRZsdmEIW/98Ic7MvkFja201eGyxVisOivV9rUMBvIGK3GodguM5zRHqGoUa24oibUEGCLXoNcuHfIN9RY8tueLixRoHDdiSNyi0w2+vrUQ2gZiq03jZNS/3ZVL9MKHzDobpyBWAgLkoxFqTblu6zfxtS8F3VYdG/sm68IuHdmN4lpoDsroRiPgpeKV6s4JPzCrY7Q3PvhPZvnm8JNJlaJDwsmdC4f1h+xZbVHeEVL/Ny+nROhN/r2+efGr8q7jfk87MmjLgNT64YtNCT6W7SC77pfuqDQd9aF54rvJBebonoCIJl1yeorMcV49kiXvmBj8kwIow/0cOl00PnUt
+    vuforiaLicenseKey: ASTqCRP/////AAAAmSRQ2MWZZUg4usLAjjnvqD8zwhFhGUKPrbTcBu6SUKrIaMgB1gbzJZJKtGqp5GK4NCKsbuYgFcvUgAe9XHSKEfEivPtc+gh7uhMA73X31ug5sKcjODYuaeUAfCZsIQ6iAutNGmNG7Tfwu3KEK9AHuF10J4gI1NsjjvjeRna9OVWKr/MLIwyPcrztp6TaRwnzVnnikuksppDBLz5vrKrBSgfHW74/ARNNg/N7b1zJ5/K4Bi7Ro3rnko/yzlnXRlM9KIJB/fv7UmRenq6QKqA9RQpW7kbEZYN0K1SGYysWD1Lj9I+Nw3BsemyoknFSoS288NBscswWaCw+9tlmibkcDBWI7vsNtXxCzPXOrNP0IfSb
     ufoLicenseKey: QVZVNDJtUC8vLy8vQUFBQUtCS0lkMkhkR0ViNHYzaU9wQVMyWmRvcHBMTmlrM1RFZkY5eXNqenZLcDJVekpXaW92UFRDRmtuR2dQVFpTOHZHbFZ2S0hOSnM1UWdGeGVzdTVEQVZaM3JVMFo1TjdXWlZIYmVUR3VQY2RlSWNNNU9FMWw0STFlUjJHWHNOaFhBU3lQdmlGakJENWRKQjFFVkVKSGljaHNWNWd2VkoxcEFHc3F0N2pHYW5OdTJyMjlEV3hqODdhYnRqb0E2NzRodkpCOFN4THliMGRXaTM3dFYyeHlpNWNBMlEyTXNCeWJmNmptZGVEZGlqMHFCMEk2V1lMUWJiMzVPeGN5am1SWHJQbjBWbHlYOFEyUkxwaldUbU0vSGpDa0xTalNBL05uQ1RiUUx5cXBsWFM1QXkrbnR2SWcwQ2hJOEc3MVU4L0JaUGU3SXo2ckNBRHdlbGZsaXh1V0pWSmJ0UTFWRk5EWHpJdHBtSzZUSHg2Q1Q=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
@@ -44,9 +44,13 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
-    - ArIES
+    - VuforiaMars_Images
+    - VuforiaMars_VuMark
+    - turnRightAR
     dataSetsToActivate:
-    - ArIES
+    - VuforiaMars_Images
+    - VuforiaMars_VuMark
+    - turnRightAR
   videoBackground:
     clippingMode: 0
     numDivisions: 2
