@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 317e1031478f65240851749a74c06f2e
-timeCreated: 1520879951
+guid: 70278a6c3b0b658488bdfb7e78476f61
+timeCreated: 1521224748
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Billboard1
+    100002: Billboard_2
     400000: //RootNode
-    400002: Billboard1
-    2100000: Billboard1Mat
-    2300000: Billboard1
-    3300000: Billboard1
-    4300000: Billboard1
+    400002: Billboard_2
+    2100000: Billboard_2Mat
+    2300000: Billboard_2
+    3300000: Billboard_2
+    4300000: Billboard_2
   externalObjects: {}
   materials:
     importMaterials: 1

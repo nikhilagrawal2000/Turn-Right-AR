@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class playerController : MonoBehaviour {
-
+public class playerController : MonoBehaviour
+{
+    private int LapCount;
     private AudioSource audi;
     private int carState;
     public float increaseRate;
@@ -21,6 +22,8 @@ public class playerController : MonoBehaviour {
     public Text Score;
     public Text HighScore;
     private float StartTime;
+    public GameObject StartMenu;
+    public Text Lap;
 
 
     [SerializeField]
@@ -46,6 +49,9 @@ public class playerController : MonoBehaviour {
         isGameOver = false;
         StartTime = Time.time;
         HighScore.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore").ToString("f0");
+        Time.timeScale = 0.0f;
+        LapCount = 0;
+        Lap.text = "Laps : 0";
     }
 
     // Update is called once per frame
@@ -79,7 +85,7 @@ public class playerController : MonoBehaviour {
                 break;
 
             case State.TURN:
-               // Debug.Log("in turn");
+                // Debug.Log("in turn");
 
                 if (Input.GetMouseButton(0))
                 {
@@ -90,7 +96,7 @@ public class playerController : MonoBehaviour {
                     current = State.STRAIGHT;
                 }
                 transform.localRotation = Quaternion.Euler(ycarRotation);
-               // Debug.Log(ycarRotation.y);
+                // Debug.Log(ycarRotation.y);
                 break;
 
             case State.FREE:
@@ -118,7 +124,7 @@ public class playerController : MonoBehaviour {
             Debug.Log("Inner boundary child");
             current = State.FREE;
             Invoke("GameOver", 2.0f);
-           
+
         }
 
     }
@@ -136,7 +142,13 @@ public class playerController : MonoBehaviour {
             current = State.FREE;
             Debug.Log("Outside");
             Invoke("GameOver", 2.0f);
-            
+
+        }
+
+        if(other.gameObject.tag == "LapBoundary")
+        {
+            LapCount++;
+            Lap.text = "Laps : " + LapCount.ToString();
         }
     }
 
@@ -145,7 +157,7 @@ public class playerController : MonoBehaviour {
         float t = Time.time - StartTime;
         float score = ((t % 60) * 100);
         string score_string = score.ToString("f0");
-        
+
         if (!isGameOver)
         {
             Score.text = "Score : " + score_string;
@@ -173,4 +185,12 @@ public class playerController : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("LoadScene");
     }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1.0f;
+        StartMenu.SetActive(false);
+
+    }
+
 }
