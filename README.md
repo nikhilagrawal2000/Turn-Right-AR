@@ -15,10 +15,10 @@ Make a HighScore and brag about it.
 
 ##  Team Members
 
-Nikhil Agrawal
+Nikhil Agrawal  :boy:
 
 
-Mansi Agrawal
+Mansi Agrawal  :girl:
 
 
-Sameer Khan
+Sameer Khan  :boy:
