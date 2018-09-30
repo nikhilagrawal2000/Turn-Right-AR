@@ -9,7 +9,7 @@ Turn Right AR is a 3D game with the support of AR and a beautiful gameplay with 
 
 ## Game Instructions
 
-If you touch the screen anywhere slightly then the car will turn slightly right but if you continuously touch the screen then the car will move in a circular path in the right direction.
+If you touch the screen anywhere slightly then the car will turn slightly right but if you touch the screen continuously then the car will move in a circular path in the right direction.
 And don't step on the grass or go outside the tracks as you will lose.
 Make a HighScore and brag about it.
 
